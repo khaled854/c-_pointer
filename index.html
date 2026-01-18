@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Portfolio - Pointers & Functions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>C++ Portfolio Showcase</h1>
+        <p>Programs ordered from easiest to hardest</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Program 1 -->
+        <div class="card">
+            <h2>1. Pointers Example</h2>
+            <p class="desc">Demonstrates pointers, memory addresses, and dereferencing.</p>
+            <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    float age = 20;
+    float* ptr = &age;
+
+    cout &lt;&lt; "Value of age: " &lt;&lt; age &lt;&lt; "\n";
+    cout &lt;&lt; "Address of age: " &lt;&lt; &age &lt;&lt; "\n";
+    cout &lt;&lt; "Pointer ptr: " &lt;&lt; ptr &lt;&lt; "\n";
+    cout &lt;&lt; "Value via pointer: " &lt;&lt; *ptr &lt;&lt; "\n";
+
+    return 0;
+}</code></pre>
+        </div>
+
+        <!-- Program 2 -->
+        <div class="card">
+            <h2>2. Square of a Number (Pass by Value, Pointer, Reference)</h2>
+            <p class="desc">Shows the difference between pass by value, pointer, and reference.</p>
+            <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int square1(int n) {
+    cout &lt;&lt; "address of n1 in square1(): " &lt;&lt; &n &lt;&lt; "\n";
+    n *= n;
+    return n;
+}
+
+void square2(int* n) {
+    cout &lt;&lt; "address of n2 in square2(): " &lt;&lt; n &lt;&lt; "\n";
+    *n *= *n;
+}
+
+void square3(int& n) {
+    cout &lt;&lt; "address of n3 in square3(): " &lt;&lt; &n &lt;&lt; "\n";
+    n *= n;
+}
+
+void geeks() {
+    int n1 = 8;
+    cout &lt;&lt; "address of n1 in main(): " &lt;&lt; &n1 &lt;&lt; "\n";
+    cout &lt;&lt; "Square of n1: " &lt;&lt; square1(n1) &lt;&lt; "\n";
+    cout &lt;&lt; "No change in n1: " &lt;&lt; n1 &lt;&lt; "\n\n";
+
+    int n2 = 8;
+    cout &lt;&lt; "address of n2 in main(): " &lt;&lt; &n2 &lt;&lt; "\n";
+    square2(&n2);
+    cout &lt;&lt; "Square of n2: " &lt;&lt; n2 &lt;&lt; "\n";
+    cout &lt;&lt; "Change reflected in n2: " &lt;&lt; n2 &lt;&lt; "\n\n";
+
+    int n3 = 8;
+    cout &lt;&lt; "address of n3 in main(): " &lt;&lt; &n3 &lt;&lt; "\n";
+    square3(n3);
+    cout &lt;&lt; "Square of n3: " &lt;&lt; n3 &lt;&lt; "\n";
+    cout &lt;&lt; "Change reflected in n3: " &lt;&lt; n3 &lt;&lt; "\n";
+}
+
+int main() {
+    geeks();
+    return 0;
+}</code></pre>
+        </div>
+
+        <!-- Program 3 -->
+        <div class="card">
+            <h2>3. Swap Two Numbers (Reference)</h2>
+            <p class="desc">Swaps two numbers using pass by reference.</p>
+            <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+void swap(int &a, int &b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+int main() {
+    int x, y;
+    cout &lt;&lt; "Please enter two values: \n";
+    cin &gt;&gt; x &gt;&gt; y;
+
+    cout &lt;&lt; "Before swap: x = " &lt;&lt; x &lt;&lt; ", y = " &lt;&lt; y &lt;&lt; endl;
+    swap(x, y);
+    cout &lt;&lt; "After swap: x = " &lt;&lt; x &lt;&lt; ", y = " &lt;&lt; y &lt;&lt; endl;
+
+    return 0;
+}</code></pre>
+        </div>
+
+        <!-- Program 4 -->
+        <div class="card">
+            <h2>4. Calculate Area (Default Arguments)</h2>
+            <p class="desc">Calculates area of a rectangle with default arguments.</p>
+            <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int calculateArea(int length = 1, int width = 1) {
+    return length * width;
+}
+
+int main() {
+    int area1 = calculateArea(10, 5);
+    cout &lt;&lt; "Area with two arguments (10, 5): " &lt;&lt; area1 &lt;&lt; endl;
+
+    int area2 = calculateArea(7);
+    cout &lt;&lt; "Area with one argument (7): " &lt;&lt; area2 &lt;&lt; endl;
+
+    int area3 = calculateArea();
+    cout &lt;&lt; "Area with no arguments: " &lt;&lt; area3 &lt;&lt; endl;
+
+    return 0;
+}</code></pre>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Khaled | C++ Portfolio</p>
+    </footer>
+
+</body>
+
+</html>
